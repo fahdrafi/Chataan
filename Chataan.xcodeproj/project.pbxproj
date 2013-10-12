@@ -391,6 +391,8 @@
 				GCC_PREFIX_HEADER = "Chataan/Chataan-Prefix.pch";
 				INFOPLIST_FILE = "Chataan/Chataan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				USER_HEADER_SEARCH_PATHS = /;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -404,6 +406,7 @@
 				GCC_PREFIX_HEADER = "Chataan/Chataan-Prefix.pch";
 				INFOPLIST_FILE = "Chataan/Chataan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
