@@ -10,9 +10,10 @@
 
 #import "CTDetailViewController.h"
 
+#import "DDXML.h"
+
 @interface CTMasterViewController () {
     NSMutableArray *_objects;
-    int number;
 }
 //@property (strong, nonatomic) NSXMLParser *rssParser;
 
@@ -27,8 +28,6 @@
 
 - (void)awakeFromNib
 {
-    number = 0;
-
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
     [super awakeFromNib];
@@ -40,11 +39,20 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    
-//    self.rssParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:@""]];
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
+                             initWithXMLString:
+                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://news.google.com/?output=rss"]
+                                                      encoding:NSASCIIStringEncoding
+                                                         error:nil]
+                             options:DDXMLDocumentXMLKind
+                             error:nil];
+    
+    NSArray *titles = [xmlDoc nodesForXPath:@"/rss/channel/item/title/text()" error:nil];
+    for (NSString *title in titles) {
+        [self insertNewObject:title];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,7 +67,7 @@
         _objects = [[NSMutableArray alloc] init];
     }
     
-    [_objects insertObject:[NSNumber numberWithInteger:number++] atIndex:0];
+    [_objects insertObject:[sender description] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
