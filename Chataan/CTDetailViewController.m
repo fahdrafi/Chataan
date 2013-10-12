@@ -23,7 +23,34 @@
         _detailItem = newDetailItem;
         
         // Update the view.
-        [self configureView];
+        [UIView animateWithDuration:0.3
+                              delay:0
+                            options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationCurveEaseIn
+                         animations:^{
+                             CGRect frame = self.detailDescriptionLabel.frame;
+                             frame.origin.y = frame.origin.y - 20;
+                             self.detailDescriptionLabel.frame = frame;
+                             self.detailDescriptionLabel.alpha = 0.0;
+                         }
+                         completion:^(BOOL finished){
+                             if (finished) {
+                                 self.detailDescriptionLabel.text = [_detailItem description];
+                             }
+
+                             [UIView animateWithDuration:0.3
+                                                   delay:0
+                                                 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationCurveEaseOut
+                                              animations:^{
+                                                  CGRect frame = self.detailDescriptionLabel.frame;
+                                                  frame.origin.y = frame.origin.y + 20;
+                                                  self.detailDescriptionLabel.frame = frame;
+                                                  self.detailDescriptionLabel.alpha = 1.0;
+                                              }
+                                              completion:nil];
+                             
+
+                         
+                         }];
     }
 
     if (self.masterPopoverController != nil) {
