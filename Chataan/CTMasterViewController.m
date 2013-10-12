@@ -9,17 +9,25 @@
 #import "CTMasterViewController.h"
 
 #import "CTDetailViewController.h"
+#import "CTChartViewController.h"
 
 #import "DDXML.h"
 
 @interface CTMasterViewController () {
-    NSMutableArray *_objects;
+    NSMutableArray *_entities;
+    NSMutableDictionary *_chartControllers;
 }
-//@property (strong, nonatomic) NSXMLParser *rssParser;
+@property (strong, nonatomic, readonly) NSMutableDictionary *chartControllers;
 
 @end
 
 @implementation CTMasterViewController
+
+-(NSMutableDictionary*)chartControllers {
+    if (!_chartControllers)
+        _chartControllers = [[NSMutableDictionary alloc] init];
+    return _chartControllers;
+}
 
 //- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
 //    self.detailViewController.detailItem = _objects[indexPath.row];
@@ -63,11 +71,11 @@
 
 - (IBAction)insertNewObject:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+    if (!_entities) {
+        _entities = [[NSMutableArray alloc] init];
     }
     
-    [_objects insertObject:[sender description] atIndex:0];
+    [_entities insertObject:[sender description] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -81,15 +89,38 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return _entities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    cell.textLabel.text = [_entities[indexPath.row] description];
+
+    UIView* chartView = nil;
+    for (UIView* view in ((UIView*)((UIView*)cell.subviews[0]).subviews[1]).subviews) {
+        if ([[view class] isSubclassOfClass:[CTChartView class]]) {
+            chartView = view;
+        }
+    }
+    
+    assert(chartView != nil);
+    
+    if (self.chartControllers[_entities[indexPath.row]]==nil) {
+        self.chartControllers[_entities[indexPath.row]] = [[CTChartViewController alloc] init];
+    }
+    
+    CTChartViewController* controller = ((CTChartViewController*)self.chartControllers[_entities[indexPath.row]]);
+    controller.view = chartView;
+    
+    NSMutableArray* values = [[NSMutableArray alloc] init];
+    for (float value = 0.0; value<0.9; value+=0.05) {
+        [values addObject:[NSNumber numberWithFloat:value]];
+    }
+    
+    controller.values = [NSArray arrayWithArray:values];
+    
     return cell;
 }
 
@@ -102,7 +133,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        [_entities removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -127,7 +158,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = _objects[indexPath.row];
+    NSDate *object = _entities[indexPath.row];
     self.detailViewController.detailItem = object;
 }
 

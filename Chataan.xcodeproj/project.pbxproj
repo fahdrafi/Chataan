@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
+		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
 		98F27D67180748E600C549E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D66180748E600C549E7 /* CoreGraphics.framework */; };
 		98F27D69180748E600C549E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D68180748E600C549E7 /* UIKit.framework */; };
@@ -41,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		981A01171809F7BB003477C8 /* CTChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartView.h; sourceTree = "<group>"; };
+		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
+		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
+		981A01201809FA53003477C8 /* CTChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartViewController.m; sourceTree = "<group>"; };
 		98F27D61180748E600C549E7 /* Chataan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chataan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F27D64180748E600C549E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		98F27D66180748E600C549E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +154,10 @@
 				98F27D7D180748E600C549E7 /* CTDetailViewController.m */,
 				98F27D7F180748E600C549E7 /* Images.xcassets */,
 				98F27D6B180748E600C549E7 /* Supporting Files */,
+				981A01171809F7BB003477C8 /* CTChartView.h */,
+				981A01181809F7BB003477C8 /* CTChartView.m */,
+				981A011F1809FA53003477C8 /* CTChartViewController.h */,
+				981A01201809FA53003477C8 /* CTChartViewController.m */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -325,11 +335,13 @@
 				98F27DB71809626600C549E7 /* DDXMLNode.m in Sources */,
 				98F27D7E180748E600C549E7 /* CTDetailViewController.m in Sources */,
 				98F27D71180748E600C549E7 /* main.m in Sources */,
+				981A01211809FA53003477C8 /* CTChartViewController.m in Sources */,
 				98F27D75180748E600C549E7 /* CTAppDelegate.m in Sources */,
 				98F27DB41809626600C549E7 /* NSString+DDXML.m in Sources */,
 				98F27DB61809626600C549E7 /* DDXMLElement.m in Sources */,
 				98F27DB51809626600C549E7 /* DDXMLDocument.m in Sources */,
 				98F27D7B180748E600C549E7 /* CTMasterViewController.m in Sources */,
+				981A01191809F7BB003477C8 /* CTChartView.m in Sources */,
 				98F27DB31809626600C549E7 /* DDXMLElementAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +559,7 @@
 				98F27D98180748E700C549E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		98F27D99180748E700C549E7 /* Build configuration list for PBXNativeTarget "ChataanTests" */ = {
 			isa = XCConfigurationList;
@@ -555,6 +568,7 @@
 				98F27D9B180748E700C549E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

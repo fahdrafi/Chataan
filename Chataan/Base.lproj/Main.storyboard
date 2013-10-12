@@ -90,6 +90,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kIR-o8-PGh" customClass="CTChartView">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                            </accessibility>
+                                        </view>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -98,6 +105,12 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kIR-o8-PGh" firstAttribute="top" secondItem="Arm-wq-HPj" secondAttribute="top" id="OiU-Z4-TB3"/>
+                                        <constraint firstItem="kIR-o8-PGh" firstAttribute="leading" secondItem="cHH-bC-oL2" secondAttribute="leading" id="ZUs-rS-uBF"/>
+                                        <constraint firstAttribute="trailing" secondItem="kIR-o8-PGh" secondAttribute="trailing" id="geb-uh-BnW"/>
+                                        <constraint firstItem="kIR-o8-PGh" firstAttribute="bottom" secondItem="Arm-wq-HPj" secondAttribute="bottom" id="z6I-HX-j1o"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
