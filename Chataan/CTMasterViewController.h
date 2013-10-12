@@ -10,7 +10,9 @@
 
 @class CTDetailViewController;
 
-@interface CTMasterViewController : UITableViewController
+@interface CTMasterViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+- (IBAction)insertNewObject:(id)sender;
 
 @property (strong, nonatomic) CTDetailViewController *detailViewController;
 

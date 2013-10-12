@@ -12,13 +12,23 @@
 
 @interface CTMasterViewController () {
     NSMutableArray *_objects;
+    int number;
 }
+//@property (strong, nonatomic) NSXMLParser *rssParser;
+
 @end
 
 @implementation CTMasterViewController
 
+//- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+//    self.detailViewController.detailItem = _objects[indexPath.row];
+////    self.detailViewController.detailDescriptionLabel.text = [self.detailViewController.detailItem description];
+//}
+
 - (void)awakeFromNib
 {
+    number = 0;
+
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
     [super awakeFromNib];
@@ -30,8 +40,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    
+//    self.rssParser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:@""]];
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
@@ -41,12 +53,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)insertNewObject:(id)sender
+- (IBAction)insertNewObject:(id)sender
 {
     if (!_objects) {
         _objects = [[NSMutableArray alloc] init];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    
+    [_objects insertObject:[NSNumber numberWithInteger:number++] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
