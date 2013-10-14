@@ -11,7 +11,6 @@
 @interface CTDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) NSDictionary* entityLinks;
-@property (weak, nonatomic) IBOutlet UIView *storiesView;
 @property (weak, nonatomic) IBOutlet UIView *entitiesView;
 
 @end
