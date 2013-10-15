@@ -159,7 +159,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
  //   NSDate *object = _entities[indexPath.row];
-    self.detailViewController.entityLinks = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntitySelected" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil]];
+    
 }
 
 @end

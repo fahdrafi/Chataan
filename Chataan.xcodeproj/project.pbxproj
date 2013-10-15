@@ -10,6 +10,7 @@
 		9809A5B4180C87700003A75F /* CTStoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5B3180C87700003A75F /* CTStoryViewCell.m */; };
 		9809A5B7180C883F0003A75F /* CTStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5B6180C883F0003A75F /* CTStoryViewController.m */; };
 		9809A5BA180C8A940003A75F /* CTArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5B9180C8A940003A75F /* CTArticle.m */; };
+		9809A5BF180DF9F60003A75F /* CTGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5BE180DF9F60003A75F /* CTGraphViewController.m */; };
 		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
 		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
@@ -52,6 +53,8 @@
 		9809A5B6180C883F0003A75F /* CTStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTStoryViewController.m; sourceTree = "<group>"; };
 		9809A5B8180C8A940003A75F /* CTArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTArticle.h; sourceTree = "<group>"; };
 		9809A5B9180C8A940003A75F /* CTArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTArticle.m; sourceTree = "<group>"; };
+		9809A5BD180DF9F60003A75F /* CTGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTGraphViewController.h; sourceTree = "<group>"; };
+		9809A5BE180DF9F60003A75F /* CTGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTGraphViewController.m; sourceTree = "<group>"; };
 		981A01171809F7BB003477C8 /* CTChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartView.h; sourceTree = "<group>"; };
 		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
 		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				9809A5B6180C883F0003A75F /* CTStoryViewController.m */,
 				9809A5B8180C8A940003A75F /* CTArticle.h */,
 				9809A5B9180C8A940003A75F /* CTArticle.m */,
+				9809A5BD180DF9F60003A75F /* CTGraphViewController.h */,
+				9809A5BE180DF9F60003A75F /* CTGraphViewController.m */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 				98F27DB51809626600C549E7 /* DDXMLDocument.m in Sources */,
 				98F27D7B180748E600C549E7 /* CTMasterViewController.m in Sources */,
 				981A01191809F7BB003477C8 /* CTChartView.m in Sources */,
+				9809A5BF180DF9F60003A75F /* CTGraphViewController.m in Sources */,
 				98F27DB31809626600C549E7 /* DDXMLElementAdditions.m in Sources */,
 				9809A5B4180C87700003A75F /* CTStoryViewCell.m in Sources */,
 			);
