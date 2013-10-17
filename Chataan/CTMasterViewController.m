@@ -14,20 +14,28 @@
 #import "DDXML.h"
 
 @interface CTMasterViewController () {
-    NSMutableArray *_entities;
-    NSMutableDictionary *_chartControllers;
+//    NSMutableArray *_entities;
+//    NSMutableDictionary *_chartControllers;
 }
-@property (strong, nonatomic, readonly) NSMutableDictionary *chartControllers;
+//@property (strong, nonatomic, readonly) NSMutableDictionary *chartControllers;
+@property (strong, nonatomic) NSMutableArray* entities;
 
 @end
 
 @implementation CTMasterViewController
 
--(NSMutableDictionary*)chartControllers {
-    if (!_chartControllers)
-        _chartControllers = [[NSMutableDictionary alloc] init];
-    return _chartControllers;
+- (NSMutableArray*)entities {
+    if (!_entities) {
+        _entities = [[NSMutableArray alloc] init];
+    }
+    return _entities;
 }
+
+//-(NSMutableDictionary*)chartControllers {
+//    if (!_chartControllers)
+//        _chartControllers = [[NSMutableDictionary alloc] init];
+//    return _chartControllers;
+//}
 
 //- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
 //    self.detailViewController.detailItem = _objects[indexPath.row];
@@ -47,7 +55,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+//    self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
                              initWithXMLString:
@@ -71,11 +79,7 @@
 
 - (IBAction)insertNewObject:(id)sender
 {
-    if (!_entities) {
-        _entities = [[NSMutableArray alloc] init];
-    }
-    
-    [_entities insertObject:[sender description] atIndex:0];
+    [self.entities insertObject:[sender description] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -89,37 +93,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _entities.count;
+    return self.entities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    cell.textLabel.text = [_entities[indexPath.row] description];
-
-    UIView* chartView = nil;
-    for (UIView* view in ((UIView*)((UIView*)cell.subviews[0]).subviews[1]).subviews) {
-        if ([[view class] isSubclassOfClass:[CTChartView class]]) {
-            chartView = view;
-        }
-    }
-    
-    assert(chartView != nil);
-    
-    if (self.chartControllers[_entities[indexPath.row]]==nil) {
-        self.chartControllers[_entities[indexPath.row]] = [[CTChartViewController alloc] init];
-    }
-    
-    CTChartViewController* controller = ((CTChartViewController*)self.chartControllers[_entities[indexPath.row]]);
-    controller.view = chartView;
-    
-    NSMutableArray* values = [[NSMutableArray alloc] init];
-    for (float value = 0.0; value<0.9; value+=0.05) {
-        [values addObject:[NSNumber numberWithFloat:value]];
-    }
-    
-    controller.values = [NSArray arrayWithArray:values];
+    cell.textLabel.text = [self.entities[indexPath.row] description];
     
     return cell;
 }
@@ -133,7 +114,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_entities removeObjectAtIndex:indexPath.row];
+        [self.entities removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -161,6 +142,7 @@
  //   NSDate *object = _entities[indexPath.row];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EntitySelected" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil]];
     
+//    self.detailViewController.entityLinks = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil];
 }
 
 @end

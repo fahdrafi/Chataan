@@ -14,6 +14,6 @@
 
 - (IBAction)insertNewObject:(id)sender;
 
-@property (strong, nonatomic) CTDetailViewController *detailViewController;
+//@property (strong, nonatomic) CTDetailViewController *detailViewController;
 
 @end
