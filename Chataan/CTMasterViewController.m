@@ -46,6 +46,7 @@
 {
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+    self.depth = 0;
     [super awakeFromNib];
 }
 
@@ -53,7 +54,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    if (!self.depth)
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
 //    self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
@@ -139,8 +141,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
- //   NSDate *object = _entities[indexPath.row];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntitySelected" object:self userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil]];
+    if (self.depth>0) return;
+    
+    CTMasterViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterController"];
+    newController.title = self.entities[indexPath.row];
+    newController.depth = self.depth + 1;
+    newController.tableView.delegate = newController;
+    newController.tableView.dataSource = newController;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddNewList" object:newController];
     
 //    self.detailViewController.entityLinks = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil];
 }

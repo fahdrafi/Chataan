@@ -8,16 +8,29 @@
 
 #import "CTAppDelegate.h"
 
+@interface CTAppDelegate ()
+
+@property (strong, nonatomic) UINavigationController* navigationController;
+
+@end
+
 @implementation CTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//    splitViewController.delegate = (id)navigationController.topViewController;
+    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    self.navigationController = [splitViewController.viewControllers firstObject];
+    //splitViewController.delegate = (id)self.navigationController.topViewController;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addNewList:) name:@"AddNewList" object:nil];
     
     return YES;
+}
+
+- (void)addNewList:(NSNotification*)notif {
+    [self.navigationController pushViewController:(UIViewController*)notif.object
+                                         animated:true];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
