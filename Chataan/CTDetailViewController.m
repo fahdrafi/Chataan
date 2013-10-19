@@ -7,6 +7,7 @@
 //
 
 #import "CTDetailViewController.h"
+#import "CTArticle.h"
 
 @interface CTDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;

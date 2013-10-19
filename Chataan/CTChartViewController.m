@@ -8,11 +8,13 @@
 
 #import "CTChartViewController.h"
 
-@interface CTChartViewController () {
-    NSArray* _values;
-}
+#define ARC4RANDOM_MAX      0x100000000
 
-@end
+//@interface CTChartViewController () {
+//    NSArray* _values;
+//}
+//
+//@end
 
 @implementation CTChartViewController
 
@@ -35,6 +37,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupRandomChart:) name:@"EntityClicked" object:nil];
+    
+}
+
+- (void)setupRandomChart:(NSNotification*) notif {
+    NSMutableArray* randomArray = [[NSMutableArray alloc] initWithCapacity:20];
+    
+    for (int i=0; i<20; i++) {
+        [randomArray addObject:[NSNumber numberWithDouble:((double)arc4random() / ARC4RANDOM_MAX)]];
+    }
+    
+    self.values = [NSArray arrayWithArray:randomArray];
+    
 }
 
 - (void)didReceiveMemoryWarning

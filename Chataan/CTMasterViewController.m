@@ -141,6 +141,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntityClicked" object:nil];
+    
     if (self.depth>0) return;
     
     CTMasterViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterController"];

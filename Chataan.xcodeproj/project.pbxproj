@@ -15,6 +15,8 @@
 		9809A5C61811C9650003A75F /* linkedin-small-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9809A5C31811C9650003A75F /* linkedin-small-icon.png */; };
 		9809A5C71811C9650003A75F /* twitter-small-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9809A5C41811C9650003A75F /* twitter-small-icon.png */; };
 		9809A5C81811C9650003A75F /* facebook-small-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9809A5C51811C9650003A75F /* facebook-small-icon.png */; };
+		9809A5CB181334810003A75F /* CTDetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CA181334810003A75F /* CTDetailNavigationController.m */; };
+		9809A5CE181335760003A75F /* CTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CD181335760003A75F /* CTWebViewController.m */; };
 		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
 		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
@@ -64,6 +66,10 @@
 		9809A5C31811C9650003A75F /* linkedin-small-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "linkedin-small-icon.png"; sourceTree = "<group>"; };
 		9809A5C41811C9650003A75F /* twitter-small-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-small-icon.png"; sourceTree = "<group>"; };
 		9809A5C51811C9650003A75F /* facebook-small-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-small-icon.png"; sourceTree = "<group>"; };
+		9809A5C9181334810003A75F /* CTDetailNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDetailNavigationController.h; sourceTree = "<group>"; };
+		9809A5CA181334810003A75F /* CTDetailNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDetailNavigationController.m; sourceTree = "<group>"; };
+		9809A5CC181335760003A75F /* CTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTWebViewController.h; sourceTree = "<group>"; };
+		9809A5CD181335760003A75F /* CTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTWebViewController.m; sourceTree = "<group>"; };
 		981A01171809F7BB003477C8 /* CTChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartView.h; sourceTree = "<group>"; };
 		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
 		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
@@ -189,6 +195,10 @@
 				9809A5BE180DF9F60003A75F /* CTGraphViewController.m */,
 				9809A5C01811C6F10003A75F /* CTEntityViewCell.h */,
 				9809A5C11811C6F10003A75F /* CTEntityViewCell.m */,
+				9809A5C9181334810003A75F /* CTDetailNavigationController.h */,
+				9809A5CA181334810003A75F /* CTDetailNavigationController.m */,
+				9809A5CC181335760003A75F /* CTWebViewController.h */,
+				9809A5CD181335760003A75F /* CTWebViewController.m */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -371,6 +381,7 @@
 			files = (
 				98F27DB71809626600C549E7 /* DDXMLNode.m in Sources */,
 				9809A5B7180C883F0003A75F /* CTStoryViewController.m in Sources */,
+				9809A5CE181335760003A75F /* CTWebViewController.m in Sources */,
 				98F27D7E180748E600C549E7 /* CTDetailViewController.m in Sources */,
 				98F27D71180748E600C549E7 /* main.m in Sources */,
 				981A01211809FA53003477C8 /* CTChartViewController.m in Sources */,
@@ -384,6 +395,7 @@
 				9809A5C21811C6F10003A75F /* CTEntityViewCell.m in Sources */,
 				9809A5BF180DF9F60003A75F /* CTGraphViewController.m in Sources */,
 				98F27DB31809626600C549E7 /* DDXMLElementAdditions.m in Sources */,
+				9809A5CB181334810003A75F /* CTDetailNavigationController.m in Sources */,
 				9809A5B4180C87700003A75F /* CTStoryViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

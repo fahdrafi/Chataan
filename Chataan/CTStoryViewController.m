@@ -10,11 +10,11 @@
 #import "DDXML.h"
 #import "CTArticle.h"
 #import "CTStoryViewCell.h"
+#import "CTWebViewController.h"
 
 @interface CTStoryViewController ()
-
 @property (strong, nonatomic) NSArray* articles;
-
+@property (weak, nonatomic) CTWebViewController* webViewCon;
 @end
 
 @implementation CTStoryViewController
@@ -106,6 +106,16 @@
     // Configure the cell...
     
     return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (!self.webViewCon)
+        self.webViewCon = (CTWebViewController*)segue.destinationViewController;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.webViewCon.article = self.articles[indexPath.row];
 }
 
 /*
