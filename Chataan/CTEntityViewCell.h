@@ -10,4 +10,6 @@
 
 @interface CTEntityViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel* myTitle;
+
 @end

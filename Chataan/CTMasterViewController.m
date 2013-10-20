@@ -7,7 +7,7 @@
 //
 
 #import "CTMasterViewController.h"
-
+#import "CTEntityViewCell.h"
 #import "CTDetailViewController.h"
 #import "CTChartViewController.h"
 
@@ -59,18 +59,32 @@
 
 //    self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
-                             initWithXMLString:
-                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://news.google.com/?output=rss"]
-                                                      encoding:NSASCIIStringEncoding
-                                                         error:nil]
-                             options:DDXMLDocumentXMLKind
-                             error:nil];
+//    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
+//                             initWithXMLString:
+//                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://news.google.com/?output=rss"]
+//                                                      encoding:NSASCIIStringEncoding
+//                                                         error:nil]
+//                             options:DDXMLDocumentXMLKind
+//                             error:nil];
+//    
+//    NSArray *titles = [xmlDoc nodesForXPath:@"/rss/channel/item/title/text()" error:nil];
+//    for (NSString *title in titles) {
+//        [self insertNewObject:title];
+//    }
     
-    NSArray *titles = [xmlDoc nodesForXPath:@"/rss/channel/item/title/text()" error:nil];
-    for (NSString *title in titles) {
-        [self insertNewObject:title];
-    }
+    [self insertNewObject:@"Barack Obama"];
+    [self insertNewObject:@"Pakistan"];
+    [self insertNewObject:@"Google"];
+    [self insertNewObject:@"Iraq"];
+    [self insertNewObject:@"Something else"];
+    [self insertNewObject:@"Apple"];
+    [self insertNewObject:@"BP"];
+    [self insertNewObject:@"Russia"];
+    [self insertNewObject:@"iPad"];
+    [self insertNewObject:@"Twitter"];
+    [self insertNewObject:@"United Nations"];
+    [self insertNewObject:@"Britney Spears"];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,10 +114,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    CTEntityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    cell.textLabel.text = [self.entities[indexPath.row] description];
-    
+    cell.myTitle.text = [self.entities[indexPath.row] description];
+   
     return cell;
 }
 
