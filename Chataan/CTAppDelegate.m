@@ -7,6 +7,7 @@
 //
 
 #import "CTAppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CTAppDelegate ()
 
@@ -32,6 +33,14 @@
     [self.navigationController pushViewController:(UIViewController*)notif.object
                                          animated:true];
 }
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -53,6 +62,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // We need to properly handle activation of the application with regards to Facebook Login
+    // (e.g., returning from iOS 6.0 Login Dialog or from fast app switching).
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

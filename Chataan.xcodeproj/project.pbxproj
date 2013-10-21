@@ -18,6 +18,8 @@
 		9809A5CB181334810003A75F /* CTDetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CA181334810003A75F /* CTDetailNavigationController.m */; };
 		9809A5CE181335760003A75F /* CTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CD181335760003A75F /* CTWebViewController.m */; };
 		9814C68C1815B42F003D26CA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9814C68B1815B42F003D26CA /* FacebookSDK.framework */; };
+		9814C68F1815DAA6003D26CA /* CTFacebookLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */; };
+		9814C6921815DC02003D26CA /* CTSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9814C6911815DC02003D26CA /* CTSplitViewController.m */; };
 		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
 		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
@@ -72,6 +74,10 @@
 		9809A5CC181335760003A75F /* CTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTWebViewController.h; sourceTree = "<group>"; };
 		9809A5CD181335760003A75F /* CTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTWebViewController.m; sourceTree = "<group>"; };
 		9814C68B1815B42F003D26CA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		9814C68D1815DAA6003D26CA /* CTFacebookLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFacebookLoginController.h; sourceTree = "<group>"; };
+		9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFacebookLoginController.m; sourceTree = "<group>"; };
+		9814C6901815DC02003D26CA /* CTSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTSplitViewController.h; sourceTree = "<group>"; };
+		9814C6911815DC02003D26CA /* CTSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTSplitViewController.m; sourceTree = "<group>"; };
 		981A01171809F7BB003477C8 /* CTChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartView.h; sourceTree = "<group>"; };
 		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
 		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
@@ -203,6 +209,10 @@
 				9809A5CA181334810003A75F /* CTDetailNavigationController.m */,
 				9809A5CC181335760003A75F /* CTWebViewController.h */,
 				9809A5CD181335760003A75F /* CTWebViewController.m */,
+				9814C68D1815DAA6003D26CA /* CTFacebookLoginController.h */,
+				9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */,
+				9814C6901815DC02003D26CA /* CTSplitViewController.h */,
+				9814C6911815DC02003D26CA /* CTSplitViewController.m */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -391,6 +401,8 @@
 				981A01211809FA53003477C8 /* CTChartViewController.m in Sources */,
 				98F27D75180748E600C549E7 /* CTAppDelegate.m in Sources */,
 				98F27DB41809626600C549E7 /* NSString+DDXML.m in Sources */,
+				9814C6921815DC02003D26CA /* CTSplitViewController.m in Sources */,
+				9814C68F1815DAA6003D26CA /* CTFacebookLoginController.m in Sources */,
 				9809A5BA180C8A940003A75F /* CTArticle.m in Sources */,
 				98F27DB61809626600C549E7 /* DDXMLElement.m in Sources */,
 				98F27DB51809626600C549E7 /* DDXMLDocument.m in Sources */,
