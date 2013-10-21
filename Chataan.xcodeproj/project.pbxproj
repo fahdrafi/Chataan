@@ -17,6 +17,7 @@
 		9809A5C81811C9650003A75F /* facebook-small-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9809A5C51811C9650003A75F /* facebook-small-icon.png */; };
 		9809A5CB181334810003A75F /* CTDetailNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CA181334810003A75F /* CTDetailNavigationController.m */; };
 		9809A5CE181335760003A75F /* CTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9809A5CD181335760003A75F /* CTWebViewController.m */; };
+		9814C68C1815B42F003D26CA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9814C68B1815B42F003D26CA /* FacebookSDK.framework */; };
 		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
 		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
@@ -70,6 +71,7 @@
 		9809A5CA181334810003A75F /* CTDetailNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDetailNavigationController.m; sourceTree = "<group>"; };
 		9809A5CC181335760003A75F /* CTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTWebViewController.h; sourceTree = "<group>"; };
 		9809A5CD181335760003A75F /* CTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTWebViewController.m; sourceTree = "<group>"; };
+		9814C68B1815B42F003D26CA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		981A01171809F7BB003477C8 /* CTChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartView.h; sourceTree = "<group>"; };
 		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
 		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9814C68C1815B42F003D26CA /* FacebookSDK.framework in Frameworks */,
 				98F27DBB18096E6B00C549E7 /* libxml2.dylib in Frameworks */,
 				98F27D67180748E600C549E7 /* CoreGraphics.framework in Frameworks */,
 				98F27D69180748E600C549E7 /* UIKit.framework in Frameworks */,
@@ -159,6 +162,7 @@
 		98F27D63180748E600C549E7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9814C68B1815B42F003D26CA /* FacebookSDK.framework */,
 				98F27DBA18096E6B00C549E7 /* libxml2.dylib */,
 				98F27DB81809636400C549E7 /* libxml2.2.dylib */,
 				98F27D64180748E600C549E7 /* Foundation.framework */,
@@ -526,6 +530,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Fahd/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chataan/Chataan-Prefix.pch";
 				INFOPLIST_FILE = "Chataan/Chataan-Info.plist";
@@ -542,6 +550,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Fahd/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chataan/Chataan-Prefix.pch";
 				INFOPLIST_FILE = "Chataan/Chataan-Info.plist";
