@@ -14,9 +14,9 @@
 
 @property (strong, nonatomic) UINavigationController* navController;
 @property (nonatomic) int depth;
+@property (nonatomic, readonly) NSMutableArray* entityStack;
 
-- (IBAction)insertNewObject:(id)sender;
-
+- (void)insertNewEntity:(NSDictionary*)entity;
 //@property (strong, nonatomic) CTDetailViewController *detailViewController;
 
 @end

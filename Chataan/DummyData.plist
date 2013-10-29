@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Entities</key>
+	<dict>
+		<key>GoogleID</key>
+		<dict>
+			<key>LinkedEntities</key>
+			<dict>
+				<key>SamsungID</key>
+				<dict>
+					<key>DisplayName</key>
+					<string>Samsung</string>
+				</dict>
+				<key>AmazonID</key>
+				<dict>
+					<key>DisplayName</key>
+					<string>Amazon</string>
+				</dict>
+				<key>Goog</key>
+				<dict>
+					<key>DisplayName</key>
+					<string>Google Glass</string>
+				</dict>
+				<key>GmailID</key>
+				<dict>
+					<key>DisplayName</key>
+					<string>Gmail</string>
+				</dict>
+				<key>AndroidID</key>
+				<dict>
+					<key>DisplayName</key>
+					<string>Android</string>
+				</dict>
+			</dict>
+			<key>ChartData</key>
+			<array>
+				<real>0.2</real>
+				<real>0.5</real>
+				<real>0.1</real>
+				<real>0.7</real>
+				<real>0.9</real>
+				<real>0.4</real>
+				<real>0.5</real>
+				<real>0.2</real>
+				<real>0.8</real>
+				<real>0.9</real>
+			</array>
+			<key>DisplayName</key>
+			<string>Google</string>
+		</dict>
+		<key>AppleEntityID</key>
+		<dict>
+			<key>DisplayName</key>
+			<string>Apple Inc</string>
+		</dict>
+		<key>ObamaEntityID</key>
+		<dict>
+			<key>DisplayName</key>
+			<string>Barack Obama</string>
+		</dict>
+		<key>USEntityID</key>
+		<dict>
+			<key>DisplayName</key>
+			<string>United States</string>
+		</dict>
+		<key>PakistanEntityID</key>
+		<dict>
+			<key>DisplayName</key>
+			<string>Pakistan</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -12,6 +12,4 @@
 
 @interface CTChartViewController : UIViewController
 
-@property (strong, nonatomic) NSArray* values;
-
 @end

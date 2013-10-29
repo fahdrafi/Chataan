@@ -43,6 +43,8 @@
 		98F27DB61809626600C549E7 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F27DAE1809626600C549E7 /* DDXMLElement.m */; };
 		98F27DB71809626600C549E7 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F27DB01809626600C549E7 /* DDXMLNode.m */; };
 		98F27DBB18096E6B00C549E7 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27DBA18096E6B00C549E7 /* libxml2.dylib */; };
+		98F992DF181C0F8D0043AEAA /* DummyData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98F992DE181C0F8D0043AEAA /* DummyData.plist */; };
+		98F992E2181C24880043AEAA /* CTDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98F992E1181C24880043AEAA /* CTDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,9 @@
 		98F27DB21809626600C549E7 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
 		98F27DB81809636400C549E7 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		98F27DBA18096E6B00C549E7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		98F992DE181C0F8D0043AEAA /* DummyData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyData.plist; sourceTree = "<group>"; };
+		98F992E0181C24880043AEAA /* CTDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDataController.h; sourceTree = "<group>"; };
+		98F992E1181C24880043AEAA /* CTDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +218,9 @@
 				9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */,
 				9814C6901815DC02003D26CA /* CTSplitViewController.h */,
 				9814C6911815DC02003D26CA /* CTSplitViewController.m */,
+				98F992DE181C0F8D0043AEAA /* DummyData.plist */,
+				98F992E0181C24880043AEAA /* CTDataController.h */,
+				98F992E1181C24880043AEAA /* CTDataController.m */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -372,6 +380,7 @@
 				9809A5C61811C9650003A75F /* linkedin-small-icon.png in Resources */,
 				98F27D80180748E600C549E7 /* Images.xcassets in Resources */,
 				9809A5C71811C9650003A75F /* twitter-small-icon.png in Resources */,
+				98F992DF181C0F8D0043AEAA /* DummyData.plist in Resources */,
 				98F27D6F180748E600C549E7 /* InfoPlist.strings in Resources */,
 				9809A5C81811C9650003A75F /* facebook-small-icon.png in Resources */,
 				98F27D78180748E600C549E7 /* Main.storyboard in Resources */,
@@ -395,6 +404,7 @@
 			files = (
 				98F27DB71809626600C549E7 /* DDXMLNode.m in Sources */,
 				9809A5B7180C883F0003A75F /* CTStoryViewController.m in Sources */,
+				98F992E2181C24880043AEAA /* CTDataController.m in Sources */,
 				9809A5CE181335760003A75F /* CTWebViewController.m in Sources */,
 				98F27D7E180748E600C549E7 /* CTDetailViewController.m in Sources */,
 				98F27D71180748E600C549E7 /* main.m in Sources */,

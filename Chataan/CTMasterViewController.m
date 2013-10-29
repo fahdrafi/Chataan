@@ -10,19 +10,32 @@
 #import "CTEntityViewCell.h"
 #import "CTDetailViewController.h"
 #import "CTChartViewController.h"
-
-#import "DDXML.h"
+#import "CTDataController.h"
 
 @interface CTMasterViewController () {
-//    NSMutableArray *_entities;
-//    NSMutableDictionary *_chartControllers;
+    CTDataController* _dataController;
+    NSMutableArray* _entityStack;
 }
-//@property (strong, nonatomic, readonly) NSMutableDictionary *chartControllers;
+
 @property (strong, nonatomic) NSMutableArray* entities;
+@property (strong, nonatomic, readonly) CTDataController* dataController;
 
 @end
 
 @implementation CTMasterViewController
+
+- (NSMutableArray*)entityStack {
+    if (!_entityStack) {
+        _entityStack = [[NSMutableArray alloc] init];
+    }
+    return _entityStack;
+}
+
+- (CTDataController*)dataController {
+    if (!_dataController)
+        _dataController = [CTDataController sharedController];
+    return _dataController;
+}
 
 - (NSMutableArray*)entities {
     if (!_entities) {
@@ -55,36 +68,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     if (!self.depth)
-        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"MasterListLoaded" object:self];
+//        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+}
 
-//    self.detailViewController = (CTDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    
-//    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
-//                             initWithXMLString:
-//                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://news.google.com/?output=rss"]
-//                                                      encoding:NSASCIIStringEncoding
-//                                                         error:nil]
-//                             options:DDXMLDocumentXMLKind
-//                             error:nil];
-//    
-//    NSArray *titles = [xmlDoc nodesForXPath:@"/rss/channel/item/title/text()" error:nil];
-//    for (NSString *title in titles) {
-//        [self insertNewObject:title];
-//    }
-    
-    [self insertNewObject:@"Barack Obama"];
-    [self insertNewObject:@"Pakistan"];
-    [self insertNewObject:@"Google"];
-    [self insertNewObject:@"Iraq"];
-    [self insertNewObject:@"Something else"];
-    [self insertNewObject:@"Apple"];
-    [self insertNewObject:@"BP"];
-    [self insertNewObject:@"Russia"];
-    [self insertNewObject:@"iPad"];
-    [self insertNewObject:@"Twitter"];
-    [self insertNewObject:@"United Nations"];
-    [self insertNewObject:@"Britney Spears"];
-    
+- (void)insertNewEntity:(NSDictionary*)entity {
+//    [self insertNewObject:self.dataController[[NSString stringWithFormat:@"Entities/%@/DisplayName", entityKey, nil]]];
+    [self.entities insertObject:entity atIndex:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,12 +86,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)insertNewObject:(id)sender
-{
-    [self.entities insertObject:[sender description] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (IBAction)insertNewObject:(id)sender
+//{
+//    [self.entities insertObject:[sender description] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 #pragma mark - Table View
 
@@ -116,7 +109,7 @@
 {
     CTEntityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    cell.myTitle.text = [self.entities[indexPath.row] description];
+    cell.myTitle.text = [self.entities[indexPath.row] objectForKeyedSubscript:@"DisplayName"];
    
     return cell;
 }
@@ -155,17 +148,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntityClicked" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EntityClicked" object:self userInfo:self.entities[indexPath.row]];
     
     if (self.depth>0) return;
     
     CTMasterViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterController"];
-    newController.title = self.entities[indexPath.row];
+    newController.title = self.entities[indexPath.row][@"DisplayName"];
     newController.depth = self.depth + 1;
     newController.tableView.delegate = newController;
     newController.tableView.dataSource = newController;
+    [newController.entityStack addObject:self.entities[indexPath.row]];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"AddNewList" object:newController];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"PushNewMasterList" object:newController];
     
 //    self.detailViewController.entityLinks = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil];
 }

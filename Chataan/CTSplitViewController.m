@@ -29,9 +29,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
-    if (FBSession.activeSession.state != FBSessionStateCreatedTokenLoaded) {
-        [self performSelector:@selector(showFacebookLogin) withObject:self afterDelay:0.0];
-    }
+//    if (FBSession.activeSession.state != FBSessionStateCreatedTokenLoaded) {
+//        [self performSelector:@selector(showFacebookLogin) withObject:self afterDelay:0.0];
+//    }
 }
 
 - (void)showFacebookLogin {
