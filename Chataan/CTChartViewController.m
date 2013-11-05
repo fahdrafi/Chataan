@@ -11,15 +11,15 @@
 #define ARC4RANDOM_MAX      0x100000000
 
 @interface CTChartViewController ()
-@property (strong, nonatomic, readonly) NSArray* values;
+//@property (strong, nonatomic, readonly) NSArray* values;
 @end
 
 @implementation CTChartViewController
 
-- (void)setValues:(NSArray*)newValues {
-    CTChartView* view = (CTChartView*)self.view;
-    view.values = newValues;
-}
+//- (void)setValues:(NSArray*)newValues {
+//    CTChartView* view = (CTChartView*)self.view;
+//    view.values = newValues;
+//}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,16 +35,16 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(entityClickedNotification:) name:@"EntityClicked" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(entityClickedNotification:) name:@"EntityClicked" object:nil];
     
 }
 
-- (void)entityClickedNotification:(NSNotification*) notif {
-    NSDictionary* entity = notif.userInfo;
-    if ([entity.allKeys containsObject:@"ChartData"]) {
-        self.values = entity[@"ChartData"];
-    }
-}
+//- (void)entityClickedNotification:(NSNotification*) notif {
+//    NSDictionary* entity = notif.userInfo;
+//    if ([entity.allKeys containsObject:@"ChartData"]) {
+//        self.values = entity[@"ChartData"];
+//    }
+//}
 
 //- (void)setupRandomChart:(NSNotification*) notif {
 //    NSMutableArray* randomArray = [[NSMutableArray alloc] initWithCapacity:20];

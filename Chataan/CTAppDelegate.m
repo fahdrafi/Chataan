@@ -12,57 +12,57 @@
 #import "CTMasterViewController.h"
 
 @interface CTAppDelegate () {
-    CTDataController* _dataController;
+//    CTDataController* _dataController;
 }
 
-@property (strong, nonatomic) UINavigationController* navigationController;
-@property (nonatomic, readonly) CTDataController* dataController;
+//@property (strong, nonatomic) UINavigationController* navigationController;
+//@property (nonatomic, readonly) CTDataController* dataController;
 
 @end
 
 @implementation CTAppDelegate
 
-- (CTDataController*)dataController {
-    if (!_dataController)
-        _dataController = [CTDataController sharedController];
-    return _dataController;
-}
+//- (CTDataController*)dataController {
+//    if (!_dataController)
+//        _dataController = [CTDataController sharedController];
+//    return _dataController;
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    self.navigationController = [splitViewController.viewControllers firstObject];
+//    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+//    self.navigationController = [splitViewController.viewControllers firstObject];
     //splitViewController.delegate = (id)self.navigationController.topViewController;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNewMasterList:) name:@"PushNewMasterList" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateMasterList:) name:@"MasterListLoaded" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushNewMasterList:) name:@"PushNewMasterList" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(populateMasterList:) name:@"MasterListLoaded" object:nil];
     
     return YES;
 }
 
-- (void)populateMasterList:(NSNotification*)notif {
-    CTMasterViewController* masterListCon = notif.object;
-    
-    NSDictionary* entities = self.dataController[@"Entities"];
-    
-    for (NSString* entityKey in entities) {
-        NSDictionary* entity = entities[entityKey];
-        [masterListCon insertNewEntity:entity];
-    }
-}
-
-- (void)pushNewMasterList:(NSNotification*)notif {
-    CTMasterViewController* newListCon = notif.object;
-    NSDictionary* linkedEntities = newListCon.entityStack.lastObject[@"LinkedEntities"];
-    
-    for (NSString* entityKey in linkedEntities) {
-        NSDictionary* entity = linkedEntities[entityKey];
-        [newListCon insertNewEntity:entity];
-    }
-
-    [self.navigationController pushViewController:newListCon animated:true];
-}
+//- (void)populateMasterList:(NSNotification*)notif {
+//    CTMasterViewController* masterListCon = notif.object;
+//    
+//    NSDictionary* entities = self.dataController
+//    
+//    for (NSString* entityKey in entities) {
+//        NSDictionary* entity = entities[entityKey];
+//        [masterListCon insertNewEntity:entity];
+//    }
+//}
+//
+//- (void)pushNewMasterList:(NSNotification*)notif {
+//    CTMasterViewController* newListCon = notif.object;
+//    NSDictionary* linkedEntities = newListCon.entityStack.lastObject[@"LinkedEntities"];
+//    
+//    for (NSString* entityKey in linkedEntities) {
+//        NSDictionary* entity = linkedEntities[entityKey];
+//        [newListCon insertNewEntity:entity];
+//    }
+//
+//    [self.navigationController pushViewController:newListCon animated:true];
+//}
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url

@@ -22,6 +22,9 @@
 		9814C6921815DC02003D26CA /* CTSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9814C6911815DC02003D26CA /* CTSplitViewController.m */; };
 		981A01191809F7BB003477C8 /* CTChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01181809F7BB003477C8 /* CTChartView.m */; };
 		981A01211809FA53003477C8 /* CTChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 981A01201809FA53003477C8 /* CTChartViewController.m */; };
+		9826ED1D182856E500BB977A /* top.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9826ED1B182856E500BB977A /* top.plist */; };
+		9826ED1E182856E500BB977A /* StoryLinks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9826ED1C182856E500BB977A /* StoryLinks.plist */; };
+		9826ED2118285DA700BB977A /* CTEntityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9826ED2018285DA700BB977A /* CTEntityModel.m */; };
 		98F27D65180748E600C549E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D64180748E600C549E7 /* Foundation.framework */; };
 		98F27D67180748E600C549E7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D66180748E600C549E7 /* CoreGraphics.framework */; };
 		98F27D69180748E600C549E7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98F27D68180748E600C549E7 /* UIKit.framework */; };
@@ -84,6 +87,10 @@
 		981A01181809F7BB003477C8 /* CTChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartView.m; sourceTree = "<group>"; };
 		981A011F1809FA53003477C8 /* CTChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTChartViewController.h; sourceTree = "<group>"; };
 		981A01201809FA53003477C8 /* CTChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTChartViewController.m; sourceTree = "<group>"; };
+		9826ED1B182856E500BB977A /* top.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = top.plist; sourceTree = "<group>"; };
+		9826ED1C182856E500BB977A /* StoryLinks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = StoryLinks.plist; sourceTree = "<group>"; };
+		9826ED1F18285DA700BB977A /* CTEntityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTEntityModel.h; sourceTree = "<group>"; };
+		9826ED2018285DA700BB977A /* CTEntityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTEntityModel.m; sourceTree = "<group>"; };
 		98F27D61180748E600C549E7 /* Chataan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chataan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F27D64180748E600C549E7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		98F27D66180748E600C549E7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +157,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9826ED2518285DCD00BB977A /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9809A5B8180C8A940003A75F /* CTArticle.h */,
+				9809A5B9180C8A940003A75F /* CTArticle.m */,
+				9826ED1F18285DA700BB977A /* CTEntityModel.h */,
+				9826ED2018285DA700BB977A /* CTEntityModel.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		9826ED26182987F600BB977A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9809A5CC181335760003A75F /* CTWebViewController.h */,
+				9809A5CD181335760003A75F /* CTWebViewController.m */,
+				98F27D79180748E600C549E7 /* CTMasterViewController.h */,
+				98F27D7A180748E600C549E7 /* CTMasterViewController.m */,
+				98F27D7C180748E600C549E7 /* CTDetailViewController.h */,
+				98F27D7D180748E600C549E7 /* CTDetailViewController.m */,
+				981A011F1809FA53003477C8 /* CTChartViewController.h */,
+				981A01201809FA53003477C8 /* CTChartViewController.m */,
+				9809A5B5180C883F0003A75F /* CTStoryViewController.h */,
+				9809A5B6180C883F0003A75F /* CTStoryViewController.m */,
+				9809A5BD180DF9F60003A75F /* CTGraphViewController.h */,
+				9809A5BE180DF9F60003A75F /* CTGraphViewController.m */,
+				9809A5C9181334810003A75F /* CTDetailNavigationController.h */,
+				9809A5CA181334810003A75F /* CTDetailNavigationController.m */,
+				9814C68D1815DAA6003D26CA /* CTFacebookLoginController.h */,
+				9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */,
+				9814C6901815DC02003D26CA /* CTSplitViewController.h */,
+				9814C6911815DC02003D26CA /* CTSplitViewController.m */,
+				98F992E0181C24880043AEAA /* CTDataController.h */,
+				98F992E1181C24880043AEAA /* CTDataController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9826ED271829881300BB977A /* Views and Cells */ = {
+			isa = PBXGroup;
+			children = (
+				981A01171809F7BB003477C8 /* CTChartView.h */,
+				981A01181809F7BB003477C8 /* CTChartView.m */,
+				9809A5B2180C87700003A75F /* CTStoryViewCell.h */,
+				9809A5B3180C87700003A75F /* CTStoryViewCell.m */,
+				9809A5C01811C6F10003A75F /* CTEntityViewCell.h */,
+				9809A5C11811C6F10003A75F /* CTEntityViewCell.m */,
+			);
+			name = "Views and Cells";
+			sourceTree = "<group>";
+		};
+		9826ED281829886700BB977A /* ProxyData */ = {
+			isa = PBXGroup;
+			children = (
+				9826ED1B182856E500BB977A /* top.plist */,
+				9826ED1C182856E500BB977A /* StoryLinks.plist */,
+				98F992DE181C0F8D0043AEAA /* DummyData.plist */,
+			);
+			name = ProxyData;
+			sourceTree = "<group>";
+		};
 		98F27D58180748E600C549E7 = {
 			isa = PBXGroup;
 			children = (
@@ -187,40 +255,15 @@
 		98F27D6A180748E600C549E7 /* Chataan */ = {
 			isa = PBXGroup;
 			children = (
+				9826ED281829886700BB977A /* ProxyData */,
 				98F27D73180748E600C549E7 /* CTAppDelegate.h */,
 				98F27D74180748E600C549E7 /* CTAppDelegate.m */,
 				98F27D76180748E600C549E7 /* Main.storyboard */,
-				98F27D79180748E600C549E7 /* CTMasterViewController.h */,
-				98F27D7A180748E600C549E7 /* CTMasterViewController.m */,
-				98F27D7C180748E600C549E7 /* CTDetailViewController.h */,
-				98F27D7D180748E600C549E7 /* CTDetailViewController.m */,
+				9826ED26182987F600BB977A /* ViewControllers */,
 				98F27D7F180748E600C549E7 /* Images.xcassets */,
 				98F27D6B180748E600C549E7 /* Supporting Files */,
-				981A01171809F7BB003477C8 /* CTChartView.h */,
-				981A01181809F7BB003477C8 /* CTChartView.m */,
-				981A011F1809FA53003477C8 /* CTChartViewController.h */,
-				981A01201809FA53003477C8 /* CTChartViewController.m */,
-				9809A5B2180C87700003A75F /* CTStoryViewCell.h */,
-				9809A5B3180C87700003A75F /* CTStoryViewCell.m */,
-				9809A5B5180C883F0003A75F /* CTStoryViewController.h */,
-				9809A5B6180C883F0003A75F /* CTStoryViewController.m */,
-				9809A5B8180C8A940003A75F /* CTArticle.h */,
-				9809A5B9180C8A940003A75F /* CTArticle.m */,
-				9809A5BD180DF9F60003A75F /* CTGraphViewController.h */,
-				9809A5BE180DF9F60003A75F /* CTGraphViewController.m */,
-				9809A5C01811C6F10003A75F /* CTEntityViewCell.h */,
-				9809A5C11811C6F10003A75F /* CTEntityViewCell.m */,
-				9809A5C9181334810003A75F /* CTDetailNavigationController.h */,
-				9809A5CA181334810003A75F /* CTDetailNavigationController.m */,
-				9809A5CC181335760003A75F /* CTWebViewController.h */,
-				9809A5CD181335760003A75F /* CTWebViewController.m */,
-				9814C68D1815DAA6003D26CA /* CTFacebookLoginController.h */,
-				9814C68E1815DAA6003D26CA /* CTFacebookLoginController.m */,
-				9814C6901815DC02003D26CA /* CTSplitViewController.h */,
-				9814C6911815DC02003D26CA /* CTSplitViewController.m */,
-				98F992DE181C0F8D0043AEAA /* DummyData.plist */,
-				98F992E0181C24880043AEAA /* CTDataController.h */,
-				98F992E1181C24880043AEAA /* CTDataController.m */,
+				9826ED271829881300BB977A /* Views and Cells */,
+				9826ED2518285DCD00BB977A /* DataModel */,
 			);
 			path = Chataan;
 			sourceTree = "<group>";
@@ -377,12 +420,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9826ED1E182856E500BB977A /* StoryLinks.plist in Resources */,
 				9809A5C61811C9650003A75F /* linkedin-small-icon.png in Resources */,
 				98F27D80180748E600C549E7 /* Images.xcassets in Resources */,
 				9809A5C71811C9650003A75F /* twitter-small-icon.png in Resources */,
 				98F992DF181C0F8D0043AEAA /* DummyData.plist in Resources */,
 				98F27D6F180748E600C549E7 /* InfoPlist.strings in Resources */,
 				9809A5C81811C9650003A75F /* facebook-small-icon.png in Resources */,
+				9826ED1D182856E500BB977A /* top.plist in Resources */,
 				98F27D78180748E600C549E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +466,7 @@
 				9809A5C21811C6F10003A75F /* CTEntityViewCell.m in Sources */,
 				9809A5BF180DF9F60003A75F /* CTGraphViewController.m in Sources */,
 				98F27DB31809626600C549E7 /* DDXMLElementAdditions.m in Sources */,
+				9826ED2118285DA700BB977A /* CTEntityModel.m in Sources */,
 				9809A5CB181334810003A75F /* CTDetailNavigationController.m in Sources */,
 				9809A5B4180C87700003A75F /* CTStoryViewCell.m in Sources */,
 			);

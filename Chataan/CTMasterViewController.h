@@ -16,7 +16,7 @@
 @property (nonatomic) int depth;
 @property (nonatomic, readonly) NSMutableArray* entityStack;
 
-- (void)insertNewEntity:(NSDictionary*)entity;
+//- (void)insertNewEntity:(NSDictionary*)entity;
 //@property (strong, nonatomic) CTDetailViewController *detailViewController;
 
 @end

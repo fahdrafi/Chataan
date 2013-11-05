@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CTEntityModel.h"
+#import "CTArticle.h"
+
 @interface CTDataController : NSObject
 
 + (CTDataController*)sharedController;
-- (id)objectForKeyedSubscript:(NSString*)key;
 
-- (void)setXMLForEntity:(NSString*)entity XML:(NSString*)xml;
-- (id)nodesForXPath:(NSString*)xPath forEntity:(NSString*)entity;
+- (NSArray*)topEntities;
+- (NSArray*)storiesForEntity:(NSString*)entity;
+- (NSArray*)entitiesForEntity:(NSString*)entity;
+
+//- (id)objectForKeyedSubscript:(NSString*)key;
+//- (void)setXMLForEntity:(NSString*)entity XML:(NSString*)xml;
+//- (id)nodesForXPath:(NSString*)xPath forEntity:(NSString*)entity;
 
 @end

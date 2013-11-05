@@ -18,7 +18,7 @@
 }
 
 @property (strong, nonatomic) NSMutableArray* entities;
-@property (strong, nonatomic, readonly) CTDataController* dataController;
+@property (nonatomic, readonly) CTDataController* dataController;
 
 @end
 
@@ -67,18 +67,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    if (!self.depth)
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"MasterListLoaded" object:self];
+//    if (!self.depth)
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"MasterListLoaded" object:self];
 //        self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
+
+    [self.entities addObjectsFromArray:self.dataController.topEntities];
 }
 
-- (void)insertNewEntity:(NSDictionary*)entity {
-//    [self insertNewObject:self.dataController[[NSString stringWithFormat:@"Entities/%@/DisplayName", entityKey, nil]]];
-    [self.entities insertObject:entity atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-}
+//- (void)insertNewEntity:(CTEntityModel*)entity {
+////    [self insertNewObject:self.dataController[[NSString stringWithFormat:@"Entities/%@/DisplayName", entityKey, nil]]];
+//    [self.entities insertObject:entity atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -109,7 +110,9 @@
 {
     CTEntityViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    cell.myTitle.text = [self.entities[indexPath.row] objectForKeyedSubscript:@"DisplayName"];
+    CTEntityModel* entity = self.entities[indexPath.row];
+    
+    cell.myTitle.text = entity.displayName;
    
     return cell;
 }
@@ -120,15 +123,15 @@
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.entities removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [self.entities removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//    }
+//}
 
 /*
 // Override to support rearranging the table view.
@@ -150,17 +153,17 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EntityClicked" object:self userInfo:self.entities[indexPath.row]];
     
-    if (self.depth>0) return;
-    
-    CTMasterViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterController"];
-    newController.title = self.entities[indexPath.row][@"DisplayName"];
-    newController.depth = self.depth + 1;
-    newController.tableView.delegate = newController;
-    newController.tableView.dataSource = newController;
-    [newController.entityStack addObject:self.entities[indexPath.row]];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PushNewMasterList" object:newController];
-    
+//    if (self.depth>0) return;
+//    
+//    CTMasterViewController *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"MasterController"];
+//    newController.title = self.entities[indexPath.row][@"DisplayName"];
+//    newController.depth = self.depth + 1;
+//    newController.tableView.delegate = newController;
+//    newController.tableView.dataSource = newController;
+//    [newController.entityStack addObject:self.entities[indexPath.row]];
+//    
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"PushNewMasterList" object:newController];
+//    
 //    self.detailViewController.entityLinks = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:0.3], @"United States", [NSNumber numberWithFloat:0.7], @"Death", [NSNumber numberWithFloat:1.0], @"Thatcher", nil];
 }
 

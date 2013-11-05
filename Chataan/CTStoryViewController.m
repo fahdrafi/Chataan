@@ -7,10 +7,9 @@
 //
 
 #import "CTStoryViewController.h"
-#import "DDXML.h"
-#import "CTArticle.h"
 #import "CTStoryViewCell.h"
 #import "CTWebViewController.h"
+#import "CTDataController.h"
 
 @interface CTStoryViewController ()
 @property (strong, nonatomic) NSArray* articles;
@@ -21,7 +20,7 @@
 
 - (NSArray*)articles {
     if (!_articles) {
-        _articles = [[NSArray alloc] init];
+        _articles = [[CTDataController sharedController] storiesForEntity:nil];
     }
     return _articles;
 }
@@ -45,30 +44,30 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
-                             initWithXMLString:
-                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://feeds.bbci.co.uk/news/rss.xml"]
-                                                      encoding:NSASCIIStringEncoding
-                                                         error:nil]
-                             options:DDXMLDocumentXMLKind
-                             error:nil];
-    
-    NSArray *items = [xmlDoc nodesForXPath:@"/rss/channel/item" error:nil];
-    
-    NSMutableArray* tempStories = [[NSMutableArray alloc] init];
-    
-    for (DDXMLElement* item in items) {
-        CTArticle *article = [[CTArticle alloc] init];
-        article.title = [[[item nodesForXPath:@"title/text()" error:nil] objectAtIndex:0] stringValue];
-        article.description = [[[item nodesForXPath:@"description/text()" error:nil] objectAtIndex:0] stringValue];
-        article.url = [[[item nodesForXPath:@"link/text()" error:nil] objectAtIndex:0] stringValue];
-        assert([[[item children][6] name] isEqualToString:@"media:thumbnail"]);
-        article.imageURL = [[[item children][6] attributeForName:@"url"] stringValue];
-        
-        [tempStories addObject:article];
-    }
+//    DDXMLDocument *xmlDoc = [[DDXMLDocument alloc]
+//                             initWithXMLString:
+//                             [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://feeds.bbci.co.uk/news/rss.xml"]
+//                                                      encoding:NSASCIIStringEncoding
+//                                                         error:nil]
+//                             options:DDXMLDocumentXMLKind
+//                             error:nil];
+//    
+//    NSArray *items = [xmlDoc nodesForXPath:@"/rss/channel/item" error:nil];
+//    
+//    NSMutableArray* tempStories = [[NSMutableArray alloc] init];
+//    
+//    for (DDXMLElement* item in items) {
+//        CTArticle *article = [[CTArticle alloc] init];
+//        article.title = [[[item nodesForXPath:@"title/text()" error:nil] objectAtIndex:0] stringValue];
+//        article.description = [[[item nodesForXPath:@"description/text()" error:nil] objectAtIndex:0] stringValue];
+//        article.url = [[[item nodesForXPath:@"link/text()" error:nil] objectAtIndex:0] stringValue];
+//        assert([[[item children][6] name] isEqualToString:@"media:thumbnail"]);
+//        article.imageURL = [[[item children][6] attributeForName:@"url"] stringValue];
+//        
+//        [tempStories addObject:article];
+//    }
 
-    self.articles = [NSArray arrayWithArray:tempStories];
+//    self.articles = [NSArray arrayWithArray:tempStories];
     
 }
 
@@ -101,7 +100,9 @@
     
     cell.storyTitle.text = article.title;
     cell.storyDetail.text = article.description;
-    cell.storyImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:article.imageURL]]];
+    if (article.imageURL) {
+        cell.storyImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:article.imageURL]]];
+    }
     
     // Configure the cell...
     
